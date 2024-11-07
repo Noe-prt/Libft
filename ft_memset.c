@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:58:13 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:58:16 by nopareti         ###   ########.fr       */
+/*   Created: 2024/10/26 12:42:17 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 10:06:20 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*dest;
-	size_t	i;
-	size_t	length;
+	unsigned char	*temp;
 
-	i = 0;
-	length = ft_strlen(s);
-	dest = malloc(length * sizeof(char) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
+	temp = (unsigned char *) b;
+	while (len > 0)
 	{
-		dest[i] = f(i, s[i]);
-		i++;
+		*temp = (unsigned char) c;
+		temp++;
+		len--;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (b);
 }
-/*
-#include <stdio.h>
 
-char to_upper(unsigned int index, char c)
-{
-}
+/*
+#include <unistd.h>
 
 int	main(void)
 {
-	char *result = ft_strmapi("hello", to_upper);
-	printf("%s\n", result);
+	char array[10];
+	
+	for (int i = 0; i < 10; i++)
+		array[i] = '.';
+	write(1, "Avant ft_memset:\n", 17);
+	write(1, array, 10);
+	write(1, "\n", 1);
+	ft_memset(array, '?', 5);
+	write(1, "Après ft_memset:\n", 17);
+	write(1, array, 10);
+	write(1, "\n", 1);
+
 	return (0);
 }
 */

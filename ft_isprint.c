@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:58:13 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:58:16 by nopareti         ###   ########.fr       */
+/*   Created: 2024/10/25 16:11:52 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 10:59:50 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_isprint(int c)
 {
-	char	*dest;
-	size_t	i;
-	size_t	length;
-
-	i = 0;
-	length = ft_strlen(s);
-	dest = malloc(length * sizeof(char) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
-	{
-		dest[i] = f(i, s[i]);
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }
 /*
-#include <stdio.h>
-
-char to_upper(unsigned int index, char c)
-{
-}
+#include <unistd.h>
 
 int	main(void)
 {
-	char *result = ft_strmapi("hello", to_upper);
-	printf("%s\n", result);
-	return (0);
+	if (ft_isprint('c'))
+		write(1, "1.S\n", 4);
+	else
+		write(1, "1.F\n", 4);
+	if (ft_isprint('5'))
+		write(1, "2.S\n", 4);
+	else
+		write(1, "2.F\n", 4);
+	if (ft_isprint(200))
+		write(1, "3.F\n", 4);
+	else
+		write(1, "3.S\n", 4);
 }
 */

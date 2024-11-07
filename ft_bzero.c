@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:58:48 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:58:51 by nopareti         ###   ########.fr       */
+/*   Created: 2024/10/26 18:20:24 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 10:07:16 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	char	*temp;
 
-	i = 0;
-	while (s[i])
+	temp = (char *) s;
+	while (n > 0)
 	{
-		f(i, &s[i]);
-		i++;
+		*temp = 0;
+		temp++;
+		n--;
 	}
 }
+
 /*
-#include <stdio.h>
+#include <unistd.h>
 
-void to_uppercase(unsigned int index, char *c)
+int main(void)
 {
-    if (*c >= 'a' && *c <= 'z' && index % 2 == 0)
-        *c -= 32;
-}
-
-int	main(void)
-{
-	char str[] = "hello world";
-	printf("Avant appel: %s\n", str);
-	ft_striteri(str, to_uppercase);
-	printf("Apres : %s\n", str);
-	return (0);	
+	write(1, "Avant appel:\n", 13);
+	char array[5] = "Hello";
+	write(1, array, 5);
+	write(1, "\n", 1);
+	ft_bzero(array, 3);
+	write(1, "Apres appel:\n", 13);
+	write(1, array, 5);
+	write(1, "\n", 1);
 }
 */

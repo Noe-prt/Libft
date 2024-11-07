@@ -1,43 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:58:48 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:58:51 by nopareti         ###   ########.fr       */
+/*   Created: 2024/11/07 12:21:01 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 12:28:09 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	t_list *lst_last = ft_lstlast(*lst);
+	lst_last->next = new;
+	lst_last = new;
 }
-/*
-#include <stdio.h>
-
-void to_uppercase(unsigned int index, char *c)
-{
-    if (*c >= 'a' && *c <= 'z' && index % 2 == 0)
-        *c -= 32;
-}
-
-int	main(void)
-{
-	char str[] = "hello world";
-	printf("Avant appel: %s\n", str);
-	ft_striteri(str, to_uppercase);
-	printf("Apres : %s\n", str);
-	return (0);	
-}
-*/

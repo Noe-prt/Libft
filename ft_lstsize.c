@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:58:13 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:58:16 by nopareti         ###   ########.fr       */
+/*   Created: 2024/11/07 12:03:21 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 12:13:34 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_lstsize(t_list *lst)
 {
-	char	*dest;
-	size_t	i;
-	size_t	length;
+	int	i;
 
 	i = 0;
-	length = ft_strlen(s);
-	dest = malloc(length * sizeof(char) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
+	while (lst)
 	{
-		dest[i] = f(i, s[i]);
+		lst = lst->next;
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }
-/*
-#include <stdio.h>
-
-char to_upper(unsigned int index, char c)
-{
-}
-
-int	main(void)
-{
-	char *result = ft_strmapi("hello", to_upper);
-	printf("%s\n", result);
-	return (0);
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nopareti <nopareti@student.42perpignan.fr> +#+  +:+       +#+        */
+/*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 15:17:48 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/06 11:24:04 by nopareti         ###   ########.fr       */
+/*   Created: 2024/11/07 11:00:44 by nopareti          #+#    #+#             */
+/*   Updated: 2024/11/07 11:00:48 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
