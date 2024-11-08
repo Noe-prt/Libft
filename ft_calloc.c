@@ -6,22 +6,22 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:00:44 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 11:00:48 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/07 21:14:04 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*tmp;
 	size_t			i;
 
-	tmp = malloc(count * size);
+	tmp = malloc(nmemb * size);
 	if (!tmp)
 		return (NULL);
 	i = 0;
-	while (i < count * size)
+	while (i < nmemb * size)
 	{
 		tmp[i] = 0;
 		i++;
