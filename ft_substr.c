@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:57:52 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/07 10:57:56 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/09 01:29:19 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	size_t	i;
 	size_t	j;
 	char	*new_str;
 
+	i = 0;
 	j = 0;
-	new_str = (char *) malloc(len + 1);
+	new_str = (char *) malloc(sizeof(*s) * (len + 1));
 	if (!new_str)
 		return (NULL);
-	while (j < len)
+	while (s[i])
 	{
-		new_str[j] = s[j + start];
-		j++;
+		if (i >= start && j < len)
+		{
+			new_str[j] = s[i];
+			j++;
+		}
+		i++;
 	}
-	new_str[j] = '\0';
+	new_str[j] = 0;
 	return (new_str);
 }
 /*
